@@ -115,7 +115,7 @@ function addPower (relativeVelocity : Vector3) {
 }
 
 function inverseSpeed(relativeVelocity : Vector3) : float{
-	return (1/(relativeVelocity.z));
+	return (2/(relativeVelocity.z));
 }
 
 function speedFactor(relativeVelocity : Vector3) : float{
