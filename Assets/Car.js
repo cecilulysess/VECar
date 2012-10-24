@@ -68,6 +68,7 @@ function addDrag (relativeVelocity : Vector3) {
 function changeSteering (relativeVelocity : Vector3) {
 	var FL : WheelCollider = wheels[0].gameObject.GetComponent(WheelCollider);
 	var FR : WheelCollider = wheels[1].gameObject.GetComponent(WheelCollider);
+	var steerAngle : float = 0;
 	
 	var speedAdjust : float = 1;
 	
@@ -75,8 +76,11 @@ function changeSteering (relativeVelocity : Vector3) {
 		speedAdjust = inverseSpeed(relativeVelocity);
 	}
 	
-	FL.steerAngle = (h * maxTurn * speedAdjust);
-	FR.steerAngle = (h * maxTurn * speedAdjust);
+	steerAngle = (h * maxTurn * speedAdjust);
+	steerAngle = Mathf.Clamp(steerAngle,(maxTurn * -1), maxTurn);
+	
+	FL.steerAngle = steerAngle;
+	FR.steerAngle = steerAngle;
 }
 
 function addPower (relativeVelocity : Vector3) {
@@ -93,7 +97,12 @@ function addPower (relativeVelocity : Vector3) {
 		currentEnginePower -= Time.deltaTime * 300;
 	}
 	
-	currentEnginePower = Mathf.Clamp(currentEnginePower,0,200);
+	if(Mathf.Sign(v) > 0){
+		currentEnginePower = Mathf.Clamp(currentEnginePower,0,200);
+	}
+	else{
+		currentEnginePower = Mathf.Clamp(currentEnginePower,0,50);
+	}
 	
 	if(Mathf.Sign(v) == Mathf.Sign(relativeVelocity.z)){
 		throttleForce = Mathf.Sign(v) * currentEnginePower * rigidbody.mass;
@@ -112,12 +121,14 @@ function inverseSpeed(relativeVelocity : Vector3) : float{
 function speedFactor(relativeVelocity : Vector3) : float{
 	factor = 1;
 	
-	if(relativeVelocity.z < 3){
-		factor += (3/relativeVelocity.z);
-	}
-	else if(relativeVelocity.z > 6){
-		factor -= (1-(6/relativeVelocity.z));
-		factor = Mathf.Clamp(factor,0.5,1);
+	if(Mathf.Sign(relativeVelocity.z) > 0){ 
+		if(relativeVelocity.z < 3){
+			factor += (3/relativeVelocity.z);
+		}
+		else if(relativeVelocity.z > 6){
+			factor -= (1-(6/relativeVelocity.z));
+			factor = Mathf.Clamp(factor,0.5,1);
+		}
 	}
 	
 	return factor;
