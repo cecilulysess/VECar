@@ -19,6 +19,8 @@ var gears : int = 5;
 
 var currentEnginePower : float = 0;
 
+var steerAngle : float = 0;
+
 var relativeVelocity : Vector3 = Vector3.zero;
 
 function Start () {
@@ -68,7 +70,6 @@ function addDrag (relativeVelocity : Vector3) {
 function changeSteering (relativeVelocity : Vector3) {
 	var FL : WheelCollider = wheels[0].gameObject.GetComponent(WheelCollider);
 	var FR : WheelCollider = wheels[1].gameObject.GetComponent(WheelCollider);
-	var steerAngle : float = 0;
 	
 	var speedAdjust : float = 1;
 	
