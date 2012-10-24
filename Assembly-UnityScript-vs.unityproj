@@ -45,10 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Car.js" />
-     <Compile Include="Assets\Scripts\Car_out.js" />
-     <Compile Include="Assets\Scripts\Skidmarks.js" />
-     <Compile Include="Assets\Scripts\SoundController.js" />
-     <Compile Include="Assets\Scripts\SoundToggler.js" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
