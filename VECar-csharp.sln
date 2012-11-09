@@ -1,19 +1,29 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{D8D5EC14-E417-C0C4-F841-7EF9B9820A84}") = "VECar", "Assembly-CSharp-vs.csproj", "{35CFA66A-7618-C01D-6B0F-3AF2BADD1584}"
+EndProject
+Project("{D8D5EC14-E417-C0C4-F841-7EF9B9820A84}") = "VECar", "Assembly-CSharp-Editor-vs.csproj", "{96FAC7C4-68FF-A67D-8171-24897600CA0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{35CFA66A-7618-C01D-6B0F-3AF2BADD1584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35CFA66A-7618-C01D-6B0F-3AF2BADD1584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35CFA66A-7618-C01D-6B0F-3AF2BADD1584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35CFA66A-7618-C01D-6B0F-3AF2BADD1584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FAC7C4-68FF-A67D-8171-24897600CA0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FAC7C4-68FF-A67D-8171-24897600CA0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FAC7C4-68FF-A67D-8171-24897600CA0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FAC7C4-68FF-A67D-8171-24897600CA0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-									GlobalSection(MonoDevelopProperties) = preSolution
+												GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

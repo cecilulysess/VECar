@@ -1,5 +1,16 @@
-[Tt]emp*/
-Library*/cache/
-Library*/previews/
-*.blender1
-*.blender2
+# Unity3D .gitignore file
+# Store this file at the root of your local repository
+.DS_Store
+Library
+!ProjectSettings
+!Assets
+Temp
+*.csproj
+*.booproj
+*.unityproj
+*.pidb
+*.sln
+*.userprefs
+Thumbs.db
+Thumbs.db.meta
+build
