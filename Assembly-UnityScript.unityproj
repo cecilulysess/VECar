@@ -49,7 +49,15 @@
      <Compile Include="Assets\Scripts\Skidmarks.js" />
      <Compile Include="Assets\Scripts\SoundController.js" />
      <Compile Include="Assets\Scripts\SoundToggler.js" />
+     <None Include="Assets\Road and Path Tool\tutorial.txt" />
+     <None Include="Assets\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{BEC5DF81-57F3-88D6-DE07-70AD979886F3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{68BE0FBD-C033-4CA7-6E54-E64BA72C14E3}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
