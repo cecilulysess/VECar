@@ -44,14 +44,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Car.js" />
      <Compile Include="Assets\Scripts\Car_out.js" />
      <Compile Include="Assets\Scripts\Skidmarks.js" />
      <Compile Include="Assets\Scripts\SoundController.js" />
      <Compile Include="Assets\Scripts\SoundToggler.js" />
-     <None Include="Assets\Road and Path Tool\tutorial.txt" />
-     <None Include="Assets\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
+     <Compile Include="Assets\old_data\Car.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Scripts\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
+     <None Include="Assets\Scripts\Road and Path Tool\tutorial.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
