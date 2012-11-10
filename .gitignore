@@ -14,5 +14,5 @@ Temp
 Thumbs.db
 Thumbs.db.meta
 build
-*.blend1/
-*.blend2/
+*.blend1
+*.blend2
