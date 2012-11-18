@@ -22,7 +22,7 @@ wheels = new Wheel[frontWheels.Length + rearWheels.Length];
 
 private var wfc : WheelFrictionCurve;
 
-var topSpeed : float = 60;
+var topSpeed : float = 100;
 var numberOfGears : int = 5;
 
 var maximumTurn : int = 15;
@@ -52,6 +52,7 @@ sound = transform.GetComponent(SoundController);
 private var canSteer : boolean;
 private var canDrive : boolean;
 
+// it is interested that the current_speed is exactly the speed in miles/hr
 var current_speed : float = 0.0;
 
 class Wheel
@@ -250,6 +251,7 @@ function SetUpSkidmarks()
 function GetInput()
 {
 	throttle = Input.GetAxis("Vertical");
+//	Debug.Log("getinput :" + Input.GetAxis("Horizontal"));
 	steer = Input.GetAxis("Horizontal");
 	
 	if(throttle < 0.0)
@@ -536,7 +538,8 @@ function ApplySteering(canSteer : boolean, relativeVelocity : Vector3)
 {
 	if(canSteer)
 	{
-		var turnRadius : float = 3.0 / Mathf.Sin((90 - (steer * 30)) * Mathf.Deg2Rad);
+//		Debug.Log("steering: " + steer);
+		var turnRadius : float = 30.0 / Mathf.Sin((90 - (steer * 30)) * Mathf.Deg2Rad);
 		var minMaxTurn : float = EvaluateSpeedToTurn(rigidbody.velocity.magnitude);
 		var turnSpeed : float = Mathf.Clamp(relativeVelocity.z / turnRadius, -minMaxTurn / 10, minMaxTurn / 10);
 		
@@ -548,7 +551,7 @@ function ApplySteering(canSteer : boolean, relativeVelocity : Vector3)
 		var debugEndPoint = debugStartPoint + Vector3.up * 5;
 		
 		Debug.DrawLine(debugStartPoint, debugEndPoint, Color.red);
-		
+//		Debug.Log("initBrake: " + initialDragMultiplierX + ", dragMul:" + dragMultiplier.x);
 		if(initialDragMultiplierX > dragMultiplier.x) // Handbrake
 		{
 			var rotationDirection : float = Mathf.Sign(steer); // rotationDirection is -1 or 1 by default, depending on steering
@@ -591,7 +594,7 @@ function HaveTheSameSign(first : float, second : float) : boolean
 
 function EvaluateSpeedToTurn(speed : float)
 {
-	if(speed > topSpeed / 2)
+	if(speed > topSpeed / 3)
 		return minimumTurn;
 	
 	var speedIndex : float = 1 - (speed / (topSpeed / 2));
