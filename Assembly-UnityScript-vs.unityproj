@@ -44,14 +44,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\SimpleVelocityLimiter.js" />
-     <Compile Include="Assets\Scripts\Skidmarks.js" />
-     <Compile Include="Assets\Scripts\SmoothFollow.js" />
-     <Compile Include="Assets\Scripts\SoundController.js" />
-     <Compile Include="Assets\Scripts\SoundToggler.js" />
-     <Compile Include="Assets\Scripts\WheelAlignment_Script.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\Car.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\CrashController.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\FPSCounter.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\LightmapperObjectUV.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\Skidmarks.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\SoundController.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\SoundToggler.js" />
+     <None Include="Assets\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpDistort.shader" />
+     <None Include="Assets\Shaders\ShadowProjection.shader" />
+     <None Include="Assets\Pro Standard Assets\Image Based\MotionBlur.shader" />
+     <None Include="Assets\Pro Standard Assets\Image Based\ColorCorrectionEffect_26.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Pro Standard Assets\Image Based\GlowEffectDownsample_26.shader" />
      <None Include="Assets\Scripts\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
+     <None Include="Assets\Shaders\Skidmarks.shader" />
      <None Include="Assets\Scripts\Road and Path Tool\tutorial.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
