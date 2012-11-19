@@ -83,85 +83,98 @@ private var shiftPitch : float = 1.44;
 private var prevPitchFactor : float = 0;
 
 // Create the needed AudioSources
-function Awake()
-{
-	car = transform.GetComponent(Car);
-	
-	DVolume *= 0.4;
-	EVolume *= 0.4;
-	FVolume *= 0.4;
-	KVolume *= 0.7;
-	LVolume *= 0.4;
-	windVolume *= 0.4;
-	
-	DAudio = gameObject.AddComponent(AudioSource);
-	DAudio.loop = true;
-	DAudio.playOnAwake = true;
-	DAudio.clip = D;
-	DAudio.volume = DVolume;
-	
-	EAudio = gameObject.AddComponent(AudioSource);
-	EAudio.loop = true;
-	EAudio.playOnAwake = true;
-	EAudio.clip = E;
-	EAudio.volume = EVolume;
-	
-	FAudio = gameObject.AddComponent(AudioSource);
-	FAudio.loop = true;
-	FAudio.playOnAwake = true;
-	FAudio.clip = F;
-	FAudio.volume = FVolume;
-	
-	KAudio = gameObject.AddComponent(AudioSource);
-	KAudio.loop = true;
-	KAudio.playOnAwake = true;
-	KAudio.clip = K;
-	KAudio.volume = KVolume;
-	
-	LAudio = gameObject.AddComponent(AudioSource);
-	LAudio.loop = true;
-	LAudio.playOnAwake = true;
-	LAudio.clip = L;
-	LAudio.volume = LVolume;
-	
-	windAudio = gameObject.AddComponent(AudioSource);
-	windAudio.loop = true;
-	windAudio.playOnAwake = true;
-	windAudio.clip = wind;
-	windAudio.volume = windVolume;
-	
-	tunnelAudio = gameObject.AddComponent(AudioSource);
-	tunnelAudio.loop = true;
-	tunnelAudio.playOnAwake = false;
-	tunnelAudio.clip = tunnelSound;
-//	tunnelAudio.maxVolume = tunnelVolume;
-	tunnelAudio.volume = tunnelVolume;
-	
-	skidAudio = gameObject.AddComponent(AudioSource);
-	skidAudio.loop = true;
-	skidAudio.playOnAwake = true;
-	skidAudio.clip = skidSound;
-	skidAudio.volume = 0.0;
-	
-	carAudio = gameObject.AddComponent(AudioSource);
-	carAudio.loop = false;
-	carAudio.playOnAwake = false;
-	carAudio.Stop();
-	
-	crashTime = Mathf.Max(crashLowSpeedSound.length, crashHighSpeedSound.length);
-	soundsSet = false;
-	
-	idleFadeSpeedDiff = idleFadeStopSpeed - idleFadeStartSpeed;
-	speedFadeSpeedDiff = speedFadeStopSpeed - speedFadeStartSpeed;
-	
-	backgroundMusic = gameObject.AddComponent(AudioSource);
-	backgroundMusic.loop = true;
-	backgroundMusic.playOnAwake = true;
-	backgroundMusic.clip = BackgroundMusic;
-//	backgroundMusic.maxVolume = BackgroundMusicVolume;
-//	backgroundMusic.minVolume = BackgroundMusicVolume;
-	backgroundMusic.volume = BackgroundMusicVolume;
+function Awake(){
+
+    car = transform.GetComponent(Car);
+    
+    DVolume *= 0.4;
+    EVolume *= 0.4;
+    FVolume *= 0.4;
+    KVolume *= 0.7;
+    LVolume *= 0.4;
+    windVolume *= 0.4;
+    
+    DAudio = gameObject.AddComponent(AudioSource);
+    DAudio.loop = true;
+    DAudio.playOnAwake = true;
+    DAudio.clip = D;
+    DAudio.volume = DVolume;
+    if (!DAudio.isPlaying) DAudio.Play();               //  <- Bugfix for Unity 3.5
+    
+    EAudio = gameObject.AddComponent(AudioSource);
+    EAudio.loop = true;
+    EAudio.playOnAwake = true;
+    EAudio.clip = E;
+    EAudio.volume = EVolume;
+    if (!EAudio.isPlaying) EAudio.Play();
+    
+    FAudio = gameObject.AddComponent(AudioSource);
+    FAudio.loop = true;
+    FAudio.playOnAwake = true;
+    FAudio.clip = F;
+    FAudio.volume = FVolume;
+    if (!FAudio.isPlaying) FAudio.Play();
+    
+    KAudio = gameObject.AddComponent(AudioSource);
+    KAudio.loop = true;
+    KAudio.playOnAwake = true;
+    KAudio.clip = K;
+    KAudio.volume = KVolume;
+    if (!KAudio.isPlaying) KAudio.Play();
+    
+    LAudio = gameObject.AddComponent(AudioSource);
+    LAudio.loop = true;
+    LAudio.playOnAwake = true;
+    LAudio.clip = L;
+    LAudio.volume = LVolume;
+    if (!LAudio.isPlaying) LAudio.Play();
+    
+    windAudio = gameObject.AddComponent(AudioSource);
+    windAudio.loop = true;
+    windAudio.playOnAwake = true;
+    windAudio.clip = wind;
+    windAudio.volume = windVolume;
+    if (!windAudio.isPlaying) windAudio.Play();
+    
+    tunnelAudio = gameObject.AddComponent(AudioSource);
+    tunnelAudio.loop = true;
+    tunnelAudio.playOnAwake = false;
+    tunnelAudio.clip = tunnelSound;
+//  tunnelAudio.maxVolume = tunnelVolume;
+    tunnelAudio.volume = tunnelVolume;
+    if (!tunnelAudio.isPlaying) tunnelAudio.Play();
+    
+    skidAudio = gameObject.AddComponent(AudioSource);
+    skidAudio.loop = true;
+    skidAudio.playOnAwake = true;
+    skidAudio.clip = skidSound;
+    skidAudio.volume = 0.0;
+    if (!skidAudio.isPlaying) skidAudio.Play();
+    
+    carAudio = gameObject.AddComponent(AudioSource);
+    carAudio.loop = false;
+    carAudio.playOnAwake = false;
+    carAudio.Stop();
+    
+    crashTime = Mathf.Max(crashLowSpeedSound.length, crashHighSpeedSound.length);
+    soundsSet = false;
+    
+    idleFadeSpeedDiff = idleFadeStopSpeed - idleFadeStartSpeed;
+    speedFadeSpeedDiff = speedFadeStopSpeed - speedFadeStartSpeed;
+    
+    backgroundMusic = gameObject.AddComponent(AudioSource);
+    backgroundMusic.loop = true;
+    backgroundMusic.playOnAwake = true;
+    backgroundMusic.clip = BackgroundMusic;
+//  backgroundMusic.maxVolume = BackgroundMusicVolume;
+//  backgroundMusic.minVolume = BackgroundMusicVolume;
+    backgroundMusic.volume = BackgroundMusicVolume;
+    if (!backgroundMusic.isPlaying) backgroundMusic.Play();
+
 }
+//function Start(){
+//	backgroundMusic.Play();
+//}
 
 function Update()
 {
