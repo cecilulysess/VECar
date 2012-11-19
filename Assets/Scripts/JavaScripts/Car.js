@@ -52,6 +52,8 @@ sound = transform.GetComponent(SoundController);
 private var canSteer : boolean;
 private var canDrive : boolean;
 
+private var isForward : boolean = true;
+
 // it is interested that the current_speed is exactly the speed in miles/hr
 var current_speed : float = 0.0;
 
@@ -250,8 +252,15 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
+	if(Mathf.Abs(Input.GetAxis("Reverse")) >= 0.999 && 
+		transform.InverseTransformDirection(rigidbody.velocity).magnitude < 0.5 ){
+		Debug.Log("Reversing forward mode" + isForward);
+		isForward = !isForward;
+	}
+	
+//	If (Input.GetKey("Reverse")
 	throttle = Input.GetAxis("Vertical");
-//	Debug.Log("getinput :" + Input.GetAxis("Horizontal"));
+//	Debug.Log("getinput v :" + Input.GetAxis("Vertical"));
 	steer = Input.GetAxis("Horizontal");
 	
 	if(throttle < 0.0)
@@ -264,6 +273,7 @@ function GetInput()
 
 function CheckHandbrake()
 {
+	
 	if(Input.GetKey("space"))
 	{
 		if(!handbrake)
@@ -526,6 +536,9 @@ function ApplyThrottle(canDrive : boolean, relativeVelocity : Vector3)
 		{
 			if (!handbrake)
 				throttleForce = Mathf.Sign(throttle) * currentEnginePower * rigidbody.mass;
+				if(Mathf.Sign(throttle) == -1 &&  current_speed < 0.2 ){
+					throttleForce = 0.0f;
+				} 
 		}
 		else
 			brakeForce = Mathf.Sign(throttle) * engineForceValues[0] * rigidbody.mass;

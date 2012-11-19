@@ -149,7 +149,7 @@ function Awake(){
     skidAudio.playOnAwake = true;
     skidAudio.clip = skidSound;
     skidAudio.volume = 0.0;
-    if (!skidAudio.isPlaying) skidAudio.Play();
+//    if (!skidAudio.isPlaying) skidAudio.Play();
     
     carAudio = gameObject.AddComponent(AudioSource);
     carAudio.loop = false;
@@ -292,11 +292,13 @@ function GearShift(oldPitchFactor : float, newPitchFactor : float, gear : int, s
 
 function Skid(play : boolean, volumeFactor : float)
 {
+	Debug.Log("playing skid");
 	if(!skidAudio)
 		return;
 	if(play)
 	{
 		skidAudio.volume = Mathf.Clamp01(volumeFactor + 0.3);
+		Debug.Log("Volumn:" + skidAudio.volum);
 	}
 	else
 		skidAudio.volume = 0.0;
