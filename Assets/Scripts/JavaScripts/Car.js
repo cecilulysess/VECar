@@ -252,10 +252,17 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
-	if(Mathf.Abs(Input.GetAxis("Reverse")) >= 0.999 && 
-		transform.InverseTransformDirection(rigidbody.velocity).magnitude < 0.5 ){
-		Debug.Log("Reversing forward mode" + isForward);
-		isForward = !isForward;
+	
+	if(current_speed < 0.5 ){
+
+//		Debug.Log("Value: "+ Input.GetAxis("Reverse"));
+		if ( Input.GetAxis("Reverse") > 0.01 ) {
+			isForward = true;
+			Debug.Log("Reversing forward mode" + isForward);
+		} else if(Input.GetAxis("Reverse") < -0.01 ) {
+			isForward = false;
+			Debug.Log("Reversing forward mode" + isForward);
+		}
 	}
 	
 //	If (Input.GetKey("Reverse")
@@ -492,15 +499,20 @@ function CalculateEnginePower(relativeVelocity : Vector3)
 	{
 		currentEnginePower -= Time.deltaTime * 200;
 	}
-	else if( HaveTheSameSign(relativeVelocity.z, throttle) )
-	{
-		normPower = (currentEnginePower / engineForceValues[engineForceValues.Length - 1]) * 2;
-		currentEnginePower += Time.deltaTime * 200 * EvaluateNormPower(normPower);
+	else{
+		if( throttle > 0 && isForward){
+			normPower = (currentEnginePower / engineForceValues[engineForceValues.Length - 1]) * 2;
+			currentEnginePower += Time.deltaTime * 200 * EvaluateNormPower(normPower);
+		} 
+		if (throttle > 0 && !isForward) {
+			normPower = (currentEnginePower / engineForceValues[engineForceValues.Length - 1]) ;
+			currentEnginePower += Time.deltaTime * 20 * EvaluateNormPower(normPower);
+		}
+		if ( throttle < 0 ) {
+			currentEnginePower -= Time.deltaTime * 300;
+		}
 	}
-	else
-	{
-		currentEnginePower -= Time.deltaTime * 300;
-	}
+		
 	
 	if(currentGear == 0)
 		currentEnginePower = Mathf.Clamp(currentEnginePower, 0, engineForceValues[0]);
@@ -532,17 +544,30 @@ function ApplyThrottle(canDrive : boolean, relativeVelocity : Vector3)
 		var throttleForce : float = 0;
 		var brakeForce : float = 0;
 		
-		if (HaveTheSameSign(relativeVelocity.z, throttle))
-		{
-			if (!handbrake)
+//		if (HaveTheSameSign(relativeVelocity.z, throttle))
+//		{
+//			if (!handbrake)
+//				throttleForce = Mathf.Sign(throttle) * currentEnginePower * rigidbody.mass;
+//				if(Mathf.Sign(throttle) == -1 &&  current_speed < 0.2 ){
+//					throttleForce = 0.0f;
+//				} 
+//		}
+//		else
+//			brakeForce = Mathf.Sign(throttle) * engineForceValues[0] * rigidbody.mass;
+		if ( throttle  > 0.01 ) {
+			if ( isForward ) {
 				throttleForce = Mathf.Sign(throttle) * currentEnginePower * rigidbody.mass;
-				if(Mathf.Sign(throttle) == -1 &&  current_speed < 0.2 ){
-					throttleForce = 0.0f;
-				} 
+			} else {
+				throttleForce = -1 * currentEnginePower * rigidbody.mass;
+			}
+		} else if (throttle < -0.01) {
+			if ( isForward && current_speed >= 0.5 ) {
+				brakeForce = -1 * engineForceValues[0] * rigidbody.mass;
+			} else {
+				if (current_speed >= 0.5)
+					brakeForce = engineForceValues[0] * rigidbody.mass;
+			}
 		}
-		else
-			brakeForce = Mathf.Sign(throttle) * engineForceValues[0] * rigidbody.mass;
-		
 		rigidbody.AddForce(transform.forward * Time.deltaTime * (throttleForce + brakeForce));
 	}
 }
