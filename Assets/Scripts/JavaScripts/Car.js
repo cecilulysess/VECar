@@ -539,7 +539,7 @@ function ApplySteering(canSteer : boolean, relativeVelocity : Vector3)
 	if(canSteer)
 	{
 //		Debug.Log("steering: " + steer);
-		var turnRadius : float = 30.0 / Mathf.Sin((90 - (steer * 30)) * Mathf.Deg2Rad);
+		var turnRadius : float = 10.0 / Mathf.Sin((90 - (steer * 30)) * Mathf.Deg2Rad);
 		var minMaxTurn : float = EvaluateSpeedToTurn(rigidbody.velocity.magnitude);
 		var turnSpeed : float = Mathf.Clamp(relativeVelocity.z / turnRadius, -minMaxTurn / 10, minMaxTurn / 10);
 		
