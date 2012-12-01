@@ -59,7 +59,9 @@
      <None Include="Assets\Pro Standard Assets\Image Based\GlowEffectDownsample_26.shader" />
      <None Include="Assets\Scripts\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
      <None Include="Assets\Shaders\Skidmarks.shader" />
+     <None Include="Assets\Mirror Reflection\FlatMirror.shader" />
      <None Include="Assets\Scripts\Road and Path Tool\tutorial.txt" />
+     <None Include="Assets\Car\catamount.obj.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
