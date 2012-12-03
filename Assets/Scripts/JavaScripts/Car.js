@@ -253,9 +253,9 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
-	
+	Debug.Log(Input.GetAxis("Vertical") + " gma");
 	if(current_speed < 0.5 ){
-
+		
 //		Debug.Log("Value: "+ Input.GetAxis("Reverse"));
 		if ( Input.GetAxis("Reverse") > 0.01 ) {
 			isForward = true;

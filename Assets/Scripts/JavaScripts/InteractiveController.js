@@ -48,9 +48,11 @@ function OnTriggerExit (other : Collider) {
 	if (n_parking_finished) {
 		score = warning_controller.scoring.success_parking(warning_controller.scoring.kNORMALPARKING);
 		instruction_controller.instruction_content = "Your normal score is " + score + " out of 30. Let's try parallel parking";
+		n_parking_finished = false;
 	}
 	if (p_parking_finished) {
 		score = warning_controller.scoring.success_parking(warning_controller.scoring.kPARALLELPARKING);
 		instruction_controller.instruction_content = "Your score is " + score + " out of 40. You are almost done.";
+		p_parking_finished = false;
 	}
 }
