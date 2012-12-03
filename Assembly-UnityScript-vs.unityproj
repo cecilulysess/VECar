@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\JavaScripts\AreaAccessTriggerController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\Car.js" />
      <Compile Include="Assets\Scripts\JavaScripts\CrashController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\FPSCounter.js" />
@@ -52,6 +53,7 @@
      <Compile Include="Assets\Scripts\JavaScripts\SoundController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\SoundToggler.js" />
      <Compile Include="Assets\Scripts\JavaScripts\SpeedMeterNumberController.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\WarningTextController.js" />
      <None Include="Assets\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\Shaders\ShadowProjection.shader" />
      <None Include="Assets\Pro Standard Assets\Image Based\MotionBlur.shader" />
