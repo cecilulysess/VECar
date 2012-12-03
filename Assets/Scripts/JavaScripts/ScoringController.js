@@ -22,7 +22,19 @@ function Start () {
 }
 
 function Update () {
+	
+}
 
+var bgguistyle: GUIStyle;
+var textstyle:GUIStyle;
+
+function OnGUI(){
+	var left = 20; 
+	var top = Screen.height - 128;
+	GUI.Box(new Rect(left, top, 175, 120), "Current Score", bgguistyle);
+	GUI.Label(new Rect(left, top + 25, 175, 25), "Driving Task: " + driving_score, textstyle);
+	GUI.Label(new Rect(left, top + 50, 175, 25), "Normal Parking Task: " + normal_parking_score, textstyle);
+	GUI.Label(new Rect(left, top + 75, 175, 25), "Parallel Parking Task: " + parallel_parking_score, textstyle);
 }
 
 function driving_out_of_road(){
@@ -73,5 +85,6 @@ function success_parking(type: int): int{
 }
 
 function get_total_score() : int{
+	if (driving_score < 0) driving_score = 0;
 	return driving_score + normal_parking_score + parallel_parking_score;
 }
