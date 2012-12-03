@@ -12,7 +12,7 @@ function Start () {
 
 function Update () {
 	if (displayWarning) {
-	Debug.Log("\tdisplayed:" + displayWarning);
+	//	Debug.Log("\tdisplayed:" + displayWarning);
 		guiText.text = "Warning: " + warning_content;
 		guiText.material.color = Color.red;
 	} else {

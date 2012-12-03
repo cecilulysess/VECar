@@ -1,4 +1,0 @@
-Unable to locate texture file "D:\Unity Projects\CTE_2.5a\Assets\Textures\Car\CAR_bottom-interior-wheel.psd".
-Unable to locate texture file "D:\Unity Projects\CTE_2.5a\Assets\Textures\Car\CAR_body.psd".
-Unable to locate texture file "D:\Unity Projects\CTE_2.5a\Assets\Textures\Car\CAR_body.psd".
-Unable to locate texture file "D:\Unity Projects\CTE_2.5a\Assets\Textures\Car\CAR_body.psd".

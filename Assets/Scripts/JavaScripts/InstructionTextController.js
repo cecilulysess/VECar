@@ -12,3 +12,4 @@ function Start () {
 function Update () {
 	guiText.text = "" + instruction_content;
 }
+
