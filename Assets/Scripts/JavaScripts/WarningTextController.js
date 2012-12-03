@@ -1,7 +1,7 @@
 #pragma strict
 
 var player : GameObject;
-private var car : Car;
+var car : Car;
 var displayWarning: boolean;
 public var warning_content : String;
 

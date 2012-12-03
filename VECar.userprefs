@@ -1,6 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\JavaScripts\AreaAccessTriggerController.js">
+    <Files>
+      <File FileName="Assets\Scripts\JavaScripts\WarningTextController.js" Line="7" Column="1" />
+      <File FileName="Assets\Scripts\JavaScripts\Car.js" Line="73" Column="1" />
+      <File FileName="Assets\Scripts\JavaScripts\AreaAccessTriggerController.js" Line="24" Column="34" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
