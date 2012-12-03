@@ -33,9 +33,9 @@ function OnTriggerEnter(other : Collider) {
 	if (this.tag == "EndofSimulationInst") {
 		var score = inst_controller.scoring.get_total_score();
 		if (score < 70) {
-			inst_controller.instruction_content = "Your score is " + score + ". You should get at lease 70 for passing the test. Driving around to practice more. Thank you";
+			inst_controller.instruction_content = "Your score is " + score + ". You should get at lease 70 for passing the test. Drive around to practice more. Thank you";
 		} else {
-			inst_controller.instruction_content = "Congratulations, your score is " + score + ". You should pass the real exam. Driving around to enjoy yourself. Thank you";
+			inst_controller.instruction_content = "Congratulations, your score is " + score + ". You should pass the real exam. Drive around to enjoy yourself. Thank you";
 		}
 	}
 	isStoped = false;
@@ -59,7 +59,7 @@ function OnTriggerExit (other : Collider) {
     if (!isStoped && this.tag == "StopSignSDA") {
 			warning_controller.displayWarning = !warning_controller.displayWarning;
 	//		Debug.Log("Hit the road : " + warning_controller.displayWarning);
-			warning_controller.warning_content = "When you see stop sign, you should stop before turning. You lose:" + inst_controller.scoring.kOUTOFBOUNDARY + " point";
+			warning_controller.warning_content = "When you see a stop sign, you should stop before turning. You lose:" + inst_controller.scoring.kOUTOFBOUNDARY + " points";
 			inst_controller.scoring.failed_to_stop();
    	} 
    	isStoped = false;
