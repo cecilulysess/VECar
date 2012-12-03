@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\JavaScripts\Skidmarks.js" />
      <Compile Include="Assets\Scripts\JavaScripts\SoundController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\SoundToggler.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\SpeedMeterNumberController.js" />
      <None Include="Assets\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\Shaders\ShadowProjection.shader" />
      <None Include="Assets\Pro Standard Assets\Image Based\MotionBlur.shader" />

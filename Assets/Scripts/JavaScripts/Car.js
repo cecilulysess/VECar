@@ -55,7 +55,7 @@ private var canDrive : boolean;
 private var isForward : boolean = true;
 
 // it is interested that the current_speed is exactly the speed in miles/hr
-var current_speed : float = 0.0;
+public var current_speed : float = 0.0;
 
 class Wheel
 {
@@ -121,6 +121,7 @@ function FixedUpdate()
 	
 	ApplySteering(canSteer, relativeVelocity);
 }
+
 
 /**************************************************/
 /* Functions called from Start()                  */
@@ -239,7 +240,7 @@ function SetUpSkidmarks()
 		skidSmoke = skidmarks.GetComponentInChildren(ParticleEmitter);
 	}
 	else
-		Debug.Log("No skidmarks object found. Skidmarks will not be drawn");
+//		Debug.Log("No skidmarks object found. Skidmarks will not be drawn");
 		
 	skidmarkTime = new float[4];
 	for (var f : float in skidmarkTime)
