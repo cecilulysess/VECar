@@ -2,6 +2,7 @@
 var warning_controller : WarningTextController;
 var instruction_controller : InstructionTextController;
 
+// car itself attached with this script
 function Start () {
 
 }
@@ -18,7 +19,7 @@ function OnTriggerEnter(other : Collider) {
 		instruction_controller.instruction_content = "Good, you entering the course, please drive along the arrow on the course";
 	}
 	if (this.tag == "PrepareToNormalParkingInst") {
-		instruction_controller.instruction_content = "Now, try parking in the parking lot in front ";
+		instruction_controller.instruction_content = "Now, try parking in the parking lot in front. Tips: keep speed at about 10 mph when you pass the white line";
 	}
 }
 
