@@ -14,11 +14,12 @@ function OnTriggerEnter(other : Collider) {
 	if (other.tag != "CarTriggerDetector") return;
 	if (this.tag == "StopSignSDA") {
 //		Debug.Log("hit stop sign with: " + warning_controller.car.current_speed );
-		if (warning_controller.car.current_speed > 2) {
-			warning_controller.displayWarning = !warning_controller.displayWarning;
-	//		Debug.Log("Hit the road : " + warning_controller.displayWarning);
-			warning_controller.warning_content = "When you see stop sign, you should stop before turning";
-		}
+//		if (warning_controller.car.current_speed > 2) {
+//			warning_controller.displayWarning = !warning_controller.displayWarning;
+//	//		Debug.Log("Hit the road : " + warning_controller.displayWarning);
+//			warning_controller.warning_content = "When you see stop sign, you should stop before turning. You lose:" + inst_controller.scoring.kOUTOFBOUNDARY + " point"";
+//			inst_controller.scoring.failed_to_stop();
+//		}
 	}
 	// if this script is attached to a stop sign instruction
 	if (this.tag == "StopSignInst") {
@@ -30,7 +31,7 @@ function OnTriggerEnter(other : Collider) {
 	}
 	
 	if (this.tag == "EndofSimulationInst") {
-		var score = 51;
+		var score = inst_controller.scoring.get_total_score();
 		if (score < 70) {
 			inst_controller.instruction_content = "Your score is " + score + ". You should get at lease 70 for passing the test. Driving around to practice more. Thank you";
 		} else {
@@ -56,9 +57,10 @@ function OnTriggerStay (other : Collider) {
 function OnTriggerExit (other : Collider) {
 	if (other.tag != "CarTriggerDetector") return;
     if (!isStoped && this.tag == "StopSignSDA") {
-    	warning_controller.displayWarning = true;
-//		Debug.Log("Hit the road : " + warning_controller.displayWarning);
-		warning_controller.warning_content = "You should stop before turning when you see the stop sign.";
+			warning_controller.displayWarning = !warning_controller.displayWarning;
+	//		Debug.Log("Hit the road : " + warning_controller.displayWarning);
+			warning_controller.warning_content = "When you see stop sign, you should stop before turning. You lose:" + inst_controller.scoring.kOUTOFBOUNDARY + " point";
+			inst_controller.scoring.failed_to_stop();
    	} 
    	isStoped = false;
 }

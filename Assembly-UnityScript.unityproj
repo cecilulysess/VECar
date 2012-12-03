@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\JavaScripts\InteractiveController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\LightmapperObjectUV.js" />
      <Compile Include="Assets\Scripts\JavaScripts\ParkingInterativeController.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\ScoringController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\Skidmarks.js" />
      <Compile Include="Assets\Scripts\JavaScripts\SoundController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\SoundToggler.js" />

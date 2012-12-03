@@ -16,7 +16,8 @@ function OnTriggerEnter(other : Collider) {
 		enter_time = Time.time;
 		warning_controller.displayWarning = !warning_controller.displayWarning;
 //		Debug.Log("Hit the road : " + warning_controller.displayWarning);
-		warning_controller.warning_content = "You are driving out of road, get back to the road!";
+		warning_controller.warning_content = "You are driving out of road, get back to the road! You lose:" + warning_controller.scoring.kOUTOFBOUNDARY + " point";
+		warning_controller.scoring.driving_out_of_road();
 	}
 }
 
