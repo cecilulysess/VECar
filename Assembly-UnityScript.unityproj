@@ -48,6 +48,8 @@
      <Compile Include="Assets\Scripts\JavaScripts\Car.js" />
      <Compile Include="Assets\Scripts\JavaScripts\CrashController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\FPSCounter.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\InstructionTextController.js" />
+     <Compile Include="Assets\Scripts\JavaScripts\InteractiveController.js" />
      <Compile Include="Assets\Scripts\JavaScripts\LightmapperObjectUV.js" />
      <Compile Include="Assets\Scripts\JavaScripts\Skidmarks.js" />
      <Compile Include="Assets\Scripts\JavaScripts\SoundController.js" />
