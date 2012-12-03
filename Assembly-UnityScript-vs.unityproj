@@ -66,7 +66,6 @@
      <None Include="Assets\Scripts\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
      <None Include="Assets\Shaders\Skidmarks.shader" />
      <None Include="Assets\Scripts\Road and Path Tool\tutorial.txt" />
-     <None Include="Assets\Car\catamount.obj.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

@@ -11,11 +11,9 @@ function Update () {
 }
 
 function OnTriggerEnter(other : Collider) {
-// TOdo detect the car whether stopped
-//	Debug.Log("other tag:"+ other.tag);
-//	if (other.tag != "Player") return;
+	if (other.tag != "CarTriggerDetector") return;
 	if (this.tag == "StopSignSDA") {
-		Debug.Log("hit stop sign");
+//		Debug.Log("hit stop sign with: " + warning_controller.car.current_speed );
 		if (warning_controller.car.current_speed > 2) {
 			warning_controller.displayWarning = !warning_controller.displayWarning;
 	//		Debug.Log("Hit the road : " + warning_controller.displayWarning);
@@ -31,10 +29,11 @@ function OnTriggerEnter(other : Collider) {
 
 
 function OnTriggerStay (other : Collider) {
-	if (other.tag != "Player") return;
+	if (other.tag != "CarTriggerDetector") return;
     if (this.tag == "StopSignSDA" /* prob other.tag == "Player" */) {
-    Debug.Log("entering stop area");
+    
     	if (warning_controller.car.current_speed < 2) {
+    		Debug.Log("Stpopped");
     		isStoped = true;
     	}
     }
@@ -42,8 +41,9 @@ function OnTriggerStay (other : Collider) {
 }
 
 function OnTriggerExit (other : Collider) {
-    if (!isStoped) {
-    	warning_controller.displayWarning = !true;
+	if (other.tag != "CarTriggerDetector") return;
+    if (!isStoped && this.tag == "StopSignSDA") {
+    	warning_controller.displayWarning = true;
 //		Debug.Log("Hit the road : " + warning_controller.displayWarning);
 		warning_controller.warning_content = "You should stop before turning when you see the stop sign.";
    	} 

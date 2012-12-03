@@ -1,12 +1,13 @@
 #pragma strict
 
+// useless, it assignd value after Start() procedure
 var player : GameObject;
 var car : Car;
 var displayWarning: boolean;
 public var warning_content : String;
 
 function Start () {
-	car = player.GetComponent(Car);
+	car = GameObject.FindGameObjectWithTag("Player").GetComponent(Car);
 	displayWarning = false;
 }
 
