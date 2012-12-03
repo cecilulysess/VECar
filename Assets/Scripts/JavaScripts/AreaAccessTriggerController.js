@@ -1,6 +1,8 @@
 #pragma strict
 
 var warning_controller : WarningTextController;
+
+private var enter_time: float;
 function Start () {
 
 }
@@ -11,13 +13,15 @@ function Update () {
 
 function OnTriggerEnter(other : Collider) {
 	if (other.tag == "PeripherialRoadBoundary") {
-		
+		enter_time = Time.time;
 		warning_controller.displayWarning = !warning_controller.displayWarning;
-		Debug.Log("Hit the road : " + warning_controller.displayWarning);
+//		Debug.Log("Hit the road : " + warning_controller.displayWarning);
 		warning_controller.warning_content = "You are driving out of road, get back to the road!";
 	}
 }
 
 function OnTriggerExit (other : Collider) {
-	
+	if ((Time.time - enter_time) < 2.2) {
+		warning_controller.displayWarning = !warning_controller.displayWarning;
+	}
 }
