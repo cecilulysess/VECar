@@ -253,16 +253,31 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
-	Debug.Log(Input.GetAxis("Vertical") + " gma");
+//	Debug.Log(Input.GetAxis("Vertical") + " gma");
 	if(current_speed < 0.5 ){
 		
 //		Debug.Log("Value: "+ Input.GetAxis("Reverse"));
 		if ( Input.GetAxis("Reverse") > 0.01 ) {
 			isForward = true;
-			Debug.Log("Reversing forward mode" + isForward);
+			Debug.Log("Reversing forward mode to" + isForward);
 		} else if(Input.GetAxis("Reverse") < -0.01 ) {
 			isForward = false;
-			Debug.Log("Reversing forward mode" + isForward);
+			Debug.Log("Reversing forward mode to" + isForward);
+		}
+		
+		if (Input.GetKeyDown("z")){
+			if (rigidbody.isKinematic){
+				rigidbody.isKinematic = false;
+				IsForward = true;
+			} else {
+				isForward = ! isForward;
+				Debug.Log("Toggle forward mode to" + isForward);
+			}
+		}
+		if (Input.GetKeyDown("p")){
+			rigidbody.velocity = Vector3.zero;
+			rigidbody.angularVelocity = Vector3.zero;
+			rigidbody.isKinematic = true;
 		}
 	}
 	
